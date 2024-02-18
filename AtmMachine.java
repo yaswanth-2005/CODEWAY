@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class AtmMachine {
 
     public static void main(String[] args) {
-        BankAccount account = new BankAccount(10000); // Initial balance of $10,000
+        BankAccount account = new BankAccount(10000); // Initial balance of Rs.10,000
         Atm atm = new Atm(account);
         atm.run();
     }
@@ -23,7 +23,7 @@ class BankAccount {
     public void withdraw(double amount) {
         if (balance >= amount) {
             balance -= amount;
-            System.out.println("Withdrawal successful. Your new balance is: $" + balance);
+            System.out.println("Withdrawal successful. Your new balance is: Rs." + balance);
         } else {
             System.out.println("Insufficient funds. Please try a lower amount.");
         }
@@ -31,7 +31,7 @@ class BankAccount {
 
     public void deposit(double amount) {
         balance += amount;
-        System.out.println("Deposit successful. Your new balance is: $" + balance);
+        System.out.println("Deposit successful. Your new balance is: Rs." + balance);
     }
 }
 
@@ -58,17 +58,17 @@ class Atm {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter amount to withdraw: $");
+                    System.out.print("Enter amount to withdraw: Rs.");
                     double withdrawAmount = scanner.nextDouble();
                     account.withdraw(withdrawAmount);
                     break;
                 case 2:
-                    System.out.print("Enter amount to deposit: $");
+                    System.out.print("Enter amount to deposit: Rs.");
                     double depositAmount = scanner.nextDouble();
                     account.deposit(depositAmount);
                     break;
                 case 3:
-                    System.out.println("Your current balance is: $" + account.getBalance());
+                    System.out.println("Your current balance is: Rs." + account.getBalance());
                     break;
                 case 4:
                     System.out.println("Thank you for using the ATM. Goodbye!");
